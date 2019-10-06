@@ -1,12 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div>
-      <h1>Aws demo</h1>
-    </div>
+   <React.Fragment>
+   <Navbar/>
+
+   </React.Fragment>
   );
 }
 
