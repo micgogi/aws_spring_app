@@ -22,8 +22,7 @@ public class AwsspringappApplication implements CommandLineRunner {
 	@Autowired
 	private AmazonDynamoDB amazonDynamoDB;
 
-	@Autowired
-	private AWSServiceRepository awsServiceRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(AwsspringappApplication.class, args);
 	}
@@ -39,31 +38,32 @@ public class AwsspringappApplication implements CommandLineRunner {
 
 		TableUtils.createTableIfNotExists(amazonDynamoDB, tableRequest);
 
-		AwsService awsService = new AwsService();
-		awsService.setServiceName("AWS DynamoDB");
-		awsService.setServiceHomePageUrl("https://aws.amazon.com/dynamodb/?nc2=h_m1");
-
-		awsService = awsServiceRepository.save(awsService);
-
-		//logger.info("Saved AwsService object: " + new Gson().toJson(awsService));
-
-		String awsServiceId = awsService.getId();
-
-
-		System.out.println("AWS Service ID: " + awsServiceId);
-		Optional<AwsService> awsServiceQueried = awsServiceRepository.findById(awsServiceId);
-
-		if (awsServiceQueried.get() != null) {
-
-			System.out.println("Queried object: " + new Gson().toJson(awsServiceQueried.get()));
-		}
-
-		Iterable<AwsService> awsServices = awsServiceRepository.findAll();
-
-		for (AwsService awsServiceObject : awsServices) {
-
-			System.out.println("List object: " + new Gson().toJson(awsServiceObject));
-		}
+//		AwsService awsService = new AwsService();
+//		awsService.setStudentAddress("Hyderabad");
+//		awsService.setStudentName("Rahul Gogyani");
+//		awsService.setStudentDept("CSE");
+//
+//		awsService = awsServiceRepository.save(awsService);
+//
+//		//logger.info("Saved AwsService object: " + new Gson().toJson(awsService));
+//
+//		String awsServiceId = awsService.getId();
+//
+//
+//		System.out.println("AWS Service ID: " + awsServiceId);
+//		Optional<AwsService> awsServiceQueried = awsServiceRepository.findById(awsServiceId);
+//
+//		if (awsServiceQueried.get() != null) {
+//
+//			System.out.println("Queried object: " + new Gson().toJson(awsServiceQueried.get()));
+//		}
+//
+//		Iterable<AwsService> awsServices = awsServiceRepository.findAll();
+//
+//		for (AwsService awsServiceObject : awsServices) {
+//
+//			System.out.println("List object: " + new Gson().toJson(awsServiceObject));
+//		}
 
 
 	}
