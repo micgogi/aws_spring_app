@@ -67,8 +67,8 @@ public class AmazonS3Service {
         return convFile;
     }
 
-    public String deleteFileFromS3Bucket(String fileUrl){
-        String filename = fileUrl.substring(fileUrl.lastIndexOf("/"));
+    public String deleteFileFromS3Bucket(String filename){
+
         System.out.println(filename);
         amazonS3Client.deleteObject(new DeleteObjectRequest(bucket,filename));
         return "HAKUNA MATATA";

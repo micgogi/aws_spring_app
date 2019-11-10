@@ -22,9 +22,9 @@ public class S3Controller {
 
     }
     @DeleteMapping("/deleteFile")
-    public String deleteFile(@RequestParam (value = "url") String url){
-        System.out.println(url);
-        return this.amazonS3Service.deleteFileFromS3Bucket(url);
+    public String deleteFile(@RequestParam (value = "filename") String filename){
+        System.out.println(filename);
+        return this.amazonS3Service.deleteFileFromS3Bucket(filename);
     }
 
 }
